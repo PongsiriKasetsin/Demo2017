@@ -28,3 +28,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Demo2017/Library
+Demo2017/Temp
+Demo2017/obj
