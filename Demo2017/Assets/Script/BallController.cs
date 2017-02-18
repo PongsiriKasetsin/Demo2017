@@ -8,6 +8,7 @@ public class BallController : MonoBehaviour {
 	public Rigidbody rg;
 	public float speed;
 	public TextMesh txtBall;
+	public GameObject dieEffectPerfab;
 
 	void Start () {
 
@@ -28,8 +29,14 @@ public class BallController : MonoBehaviour {
 			countCollosion++;
 			txtBall.text = "Floor : " + countCollosion.ToString ();
 		}
-		else if(collision.gameObject.tag == "ceil")
-			Destroy(collision.gameObject);
+//		else if(collision.gameObject.tag == "ceil")
+//			Destroy(collision.gameObject);
 	
 	}	
+		
+	void OnDestroy() {
+		GameObject dieEffect = Instantiate (dieEffectPerfab);
+		dieEffect.transform.position = this.gameObject.transform.position;
+	}
+
 }

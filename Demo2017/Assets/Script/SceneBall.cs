@@ -7,10 +7,11 @@ using UnityEngine.SceneManagement;
 public class SceneBall : MonoBehaviour {
 	public Text txtScore;
 	public Text txtAttack;
+	public GameObject obtacleprefab;
 
 	// Use this for initialization
 	void Start () {
-		
+		DotestObtacle ();
 	}
 	
 	// Update is called once per frame
@@ -18,7 +19,7 @@ public class SceneBall : MonoBehaviour {
 		
 	}
 
-	int score = 0;
+	int score = 0; 
 	int attack = 10;
 	public void DoPushButton(){
 		score++;
@@ -31,4 +32,16 @@ public class SceneBall : MonoBehaviour {
 		SceneManager.LoadScene(1);
 		}
 
+	public void DotestObtacle(){
+		StartCoroutine (Gameprocess());
+	}
+
+	IEnumerator Gameprocess(){
+
+		for (int i = 0; i < 10; i++) 
+		{
+			Instantiate (obtacleprefab);
+			yield return new WaitForSeconds(1);
+		}
+	}
 }
