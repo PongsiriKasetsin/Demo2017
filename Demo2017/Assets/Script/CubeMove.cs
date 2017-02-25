@@ -18,5 +18,11 @@ public class CubeMove : MonoBehaviour {
 		
 	}
 
+	void OnCollisionEnter(Collision collision) {
+		//Debug.LogFormat ("collision is (0)",collision.gameObject.tag);
+		if (collision.gameObject.tag == "Ball") {
+			Destroy (collision.gameObject);
+		}
+	}
 
 }
