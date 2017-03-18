@@ -17,4 +17,9 @@ public class BoundaryController : MonoBehaviour {
 	void OnCollisionEnter(Collision collision){
 		Destroy (collision.gameObject);
 	}
+
+	void OnTriggerEnter(Collider other){
+		
+		Destroy (other.gameObject);
+	}
 }

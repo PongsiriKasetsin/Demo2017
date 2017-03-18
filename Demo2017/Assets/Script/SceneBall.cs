@@ -11,6 +11,7 @@ public class SceneBall : MonoBehaviour {
 	public GameObject moneyprefab;
 	public Text txtlife;
 	public GameObject Ballprefab;
+	public Button btnjump;
 
 	// Use this for initialization
 	void Start () {
@@ -67,6 +68,8 @@ public class SceneBall : MonoBehaviour {
 	}
 
 	void CreateBall(){
-		Instantiate (Ballprefab).GetComponent<BallController> ().SetDieCallBack (CreateBall);
+		BallController control = Instantiate (Ballprefab).GetComponent<BallController> ();
+		control.SetDieCallBack (CreateBall);
+		btnjump.onClick.AddListener (control.Dojump);
 	}
 }

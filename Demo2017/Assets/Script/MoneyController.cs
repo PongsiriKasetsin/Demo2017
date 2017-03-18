@@ -21,8 +21,9 @@ public class MoneyController : MonoBehaviour {
 		if (other.gameObject.gameObject.tag == "Ball") {
 			SceneBall.score++;
 			Destroy (gameObject);
+		}else if(other.gameObject.gameObject.tag == "Boundary"){
+			Destroy (this.gameObject);
 		}
-			
 	}
 
 }
